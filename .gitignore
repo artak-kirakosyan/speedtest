@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+*.log
+configs.json
+venv
+conda_setup.sh

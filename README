@@ -1,0 +1,32 @@
+# Speedtest from python
+
+This project is for testing the internet speed and storing
+that data into a mongodb.
+
+Setup:
+1. virtualenv venv
+2. source setup.sh
+3. pip install -r requirements.txt
+4. update configs.json with necessary credentials
+5. ./run.sh
+
+After that the script will check the internet speed and store all available
+info from that measurement with the wifi name into the specified mongodb.
+
+It can be easily modified to store results in a CSV, JSON or any other format
+or place.
+
+
+This script is also much more useful as a cronjob. If you want to run this
+with some periodicity:
+1. crontab -e
+2. in the opened window specify the path to the run.sh file and the cronjob time
+format. An example for every-10 minute runing job:
+    */10 * * * * ~/Documents/2020_Summer/python_projects/speedtest/run.sh
+For more details visit 
+      https://crontab.guru/
+      https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/
+
+
+I would appreciate any input and contribution.
+
