@@ -1,0 +1,8 @@
+{
+    "queue_file": "queue.json",
+    "log_file": "log-file-name",
+    "connection_string": "your-connection-string",
+    "db_name": "default-DB-name",
+    "collection_name": "default-collection-name",
+    "datetime_format": "%Y-%m-%d %H:%M:%S"
+}

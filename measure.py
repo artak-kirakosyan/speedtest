@@ -203,10 +203,12 @@ class SpeedTesting():
 
 
 def main():
-    sp = SpeedTesting("configs.json")
+    config_path = "configs.json"
+    sp = SpeedTesting(config_path)
     sp.measure()
     sp.process_queue()
 
 
 if __name__ == "__main__":
     main()
+

@@ -8,7 +8,17 @@ Setup:
 2. source setup.sh
 3. pip install -r requirements.txt
 4. update configs.json with necessary credentials
-5. ./run.sh
+        queue_file: a filename where the results will be stored temporarily 
+                     in JSON format if failed to insert into mongodb
+        log_file: logging file name
+        connection_string: connection string of the mongodb
+        db_name: default DB of the mongodb to be used
+        collection_name: default collection where to insert infomation
+        datetime_format: apart from info received from speedtest, I add a "measured"
+                         field into documents. This format will be used to format
+                         and store that field
+5. update the config_path in measure.py file
+6. ./run.sh
 
 After that the script will check the internet speed and store all available
 info from that measurement with the wifi name into the specified mongodb.
