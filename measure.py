@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 try:
     import os
@@ -11,7 +11,7 @@ try:
     import speedtest
 
 except ImportError as e:
-    print(f'Error occured during import: {e}')
+    print('Error occured during import: %s' % (e,))
     print('Please install all necessary libraries and try again')
     exit(1)
 
@@ -58,7 +58,7 @@ class SpeedTesting():
             with(open(config_path, 'r')) as f:
                     self._configs = json.load(f)
         except Exception as e:
-            print(f"An error occured while loading the config file: {e}")
+            print("An error occured while loading the config file: %s" % (e,))
             exit(1)
 
         self._logger = get_logger("SPEEDTEST_LOG", file_name=self._configs['log_file'])
@@ -89,7 +89,7 @@ class SpeedTesting():
             out, err = out.communicate()
             out = out.decode('utf-8')
             if err:
-                self._logger.error(f"Error: {err}, content: {out}")
+                self._logger.error("Error: %s, content: %s" % (err, out,))
                 wifi_name = out
             else:
                 wifi_name = out.split('"')[1]
@@ -175,7 +175,7 @@ class SpeedTesting():
         res['download_mb'] = res['download'] / 1000000
         res['upload_mb'] = res['upload'] / 1000000
 
-        self._logger.info(f"\n\tDownload: {res['download_mb']}\n\tUpload: {res['upload_mb']}")
+        self._logger.info("\n\tDownload: %s\n\tUpload: %s" % (res['download_mb'], res['upload_mb'],))
 
         res['measured'] = datetime.strptime(datetime.now().strftime(self._configs['datetime_format']), self._configs['datetime_format'])
         wifi_name = self.parse_wifi_name()
@@ -203,7 +203,7 @@ class SpeedTesting():
 
 
 def main():
-    config_path = "configs.json"
+    config_path = "dummy.json"
     sp = SpeedTesting(config_path)
     sp.measure()
     sp.process_queue()
